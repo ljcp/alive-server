@@ -1,7 +1,7 @@
 {
-  "name": "live-server",
+  "name": "alive-server",
   "version": "1.2.2",
-  "description": "simple development http server with live reload capability",
+  "description": "Alive fork of live-server: simple development http server with live reload capability",
   "keywords": [
     "front-end",
     "development",
@@ -10,7 +10,7 @@
     "http",
     "cli"
   ],
-  "author": "Tapio Vierros",
+  "author": "Luis J",
   "dependencies": {
     "chokidar": "^2.0.4",
     "colors": "1.4.0",
