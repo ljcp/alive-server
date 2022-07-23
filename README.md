@@ -261,11 +261,11 @@ Version history
 License
 -------
 
-Uses MIT licensed code from [Connect](https://github.com/senchalabs/connect/) and  [Roots](https://github.com/jenius/roots).
+Uses MIT licensed code from [Connect](https://github.com/senchalabs/connect/), [Roots](https://github.com/jenius/roots), [live-server](https://github.com/tapio/live-server).
 
 (MIT License)
 
-Copyright (c) 2012 Tapio Vierros
+Copyright (c) 2022 Luis J
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
