@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tapio/live-server.git"
+    "url": "https://github.com/ljcp/alive-server.git"
   },
   "engines": {
     "node": ">=0.10.0"
