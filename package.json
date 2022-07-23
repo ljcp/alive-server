@@ -1,6 +1,6 @@
 {
   "name": "alive-server",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Alive fork of live-server: simple development http server with live reload capability",
   "keywords": [
     "front-end",
@@ -38,7 +38,7 @@
     "test": "mocha test --exit && npm run lint"
   },
   "bin": {
-    "live-server": "./live-server.js"
+    "alive-server": "./live-server.js"
   },
   "repository": {
     "type": "git",

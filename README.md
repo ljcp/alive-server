@@ -24,12 +24,12 @@ You need node.js and npm. You should probably install this globally.
 
 **Npm way**
 
-	npm install -g live-server
+	npm install -g alive-server
 
 **Manual way**
 
-	git clone https://github.com/tapio/live-server
-	cd live-server
+	git clone https://github.com/ljcp/alive-server
+	cd alive-server
 	npm install # Local dependencies if you want to hack
 	npm install -g # Install globally
 
@@ -37,7 +37,7 @@ You need node.js and npm. You should probably install this globally.
 Usage from command line
 -----------------------
 
-Issue the command `live-server` in your project's directory. Alternatively you can add the path to serve as a command line parameter.
+Issue the command `alive-server` in your project's directory. Alternatively you can add the path to serve as a command line parameter.
 
 This will automatically launch the default browser. When you make a change to any file, the browser will reload the page - unless it was a CSS file in which case the changes are applied without a reload.
 
@@ -77,7 +77,7 @@ Usage from node
 ---------------
 
 ```javascript
-var liveServer = require("live-server");
+var liveServer = require("alive-server");
 
 var params = {
 	port: 8181, // Set the server port. Defaults to 8080.
@@ -119,11 +119,11 @@ HTTP/2
 ---------------
 
 To get HTTP/2 support one can provide a custom HTTPS module via `--https-module` CLI parameter (`httpsModule` option for Node.js script). **Be sure to install the module first.**
-HTTP/2 unencrypted mode is not supported by browsers, thus not supported by `live-server`. See [this question](https://http2.github.io/faq/#does-http2-require-encryption) and [can I use page on HTTP/2](http://caniuse.com/#search=http2) for more details.
+HTTP/2 unencrypted mode is not supported by browsers, thus not supported by `alive-server`. See [this question](https://http2.github.io/faq/#does-http2-require-encryption) and [can I use page on HTTP/2](http://caniuse.com/#search=http2) for more details.
 
 For example from CLI(bash):
 
-	live-server \
+	alive-server \
 		--https=path/to/https.conf.js \
 		--https-module=spdy \
 		my-app-folder/
@@ -132,7 +132,7 @@ Troubleshooting
 ---------------
 
 * No reload on changes
-	* Open your browser's console: there should be a message at the top stating that live reload is enabled. Note that you will need a browser that supports WebSockets. If there are errors, deal with them. If it's still not working, [file an issue](https://github.com/tapio/live-server/issues).
+	* Open your browser's console: there should be a message at the top stating that live reload is enabled. Note that you will need a browser that supports WebSockets. If there are errors, deal with them. If it's still not working, [file an issue](https://github.com/ljcp/alive-server/issues).
 * Error: watch <PATH> ENOSPC
 	* See [this suggested solution](http://stackoverflow.com/questions/22475849/node-js-error-enospc/32600959#32600959).
 * Reload works but changes are missing or outdated
