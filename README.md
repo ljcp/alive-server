@@ -1,9 +1,9 @@
-[![view on npm](http://img.shields.io/npm/v/live-server.svg)](https://www.npmjs.org/package/live-server)
-[![npm module downloads per month](http://img.shields.io/npm/dm/live-server.svg)](https://www.npmjs.org/package/live-server)
-[![build status](https://travis-ci.org/tapio/live-server.svg)](https://travis-ci.org/tapio/live-server)
-
-Live Server
+ALive Server
 ===========
+
+A fork of tapio/live-server but Alive , PR's are welcome and reviewed within a week
+
+----------
 
 This is a little development server with live reload capability. Use it for hacking your HTML/JavaScript/CSS files, but not for deploying the final site.
 
