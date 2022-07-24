@@ -1,3 +1,4 @@
+[![view on npm]](https://www.npmjs.org/package/alive-server)
 ALive Server
 ===========
 
