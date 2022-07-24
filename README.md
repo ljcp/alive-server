@@ -1,5 +1,5 @@
-[![view on npm]](https://www.npmjs.org/package/alive-server)
-ALive Server
+[![NPM version](http://img.shields.io/npm/v/github-label.svg)](https://www.npmjs.org/package/github-label)
+A Live Server
 ===========
 
 A fork of tapio/live-server but Alive , PR's are welcome and reviewed within a week
