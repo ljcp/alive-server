@@ -56,6 +56,7 @@ Command line parameters:
 * `--no-css-inject` - reload page on CSS change, rather than injecting changed CSS
 * `--middleware=PATH` - path to .js file exporting a middleware function to add; can be a name without path nor extension to reference bundled middlewares in `middleware` folder
 * `--mimetypes=MIMETYPES` - specify an object string to set the mime extension type (e.g. `"{'application/wasm': ['.wasm']}"`) (this option is actually the parameter of (send.mime.define)[https://github.com/pillarjs/send#custom-file-types])
+* `--index=` - By default send supports "index.html" files, to disable this set false or to supply a new index pass a string or an array in preferred order , (e.g. `"index.html,index.js"` auto open the index.js instead of listing the dir )
 * `--entry-file=PATH` - serve this file (server root relative) in place of missing files (useful for single page apps)
 * `--mount=ROUTE:PATH` - serve the paths contents under the defined route (multiple definitions possible)
 * `--spa` - translate requests from /abc to /#/abc (handy for Single Page Apps)
@@ -90,7 +91,8 @@ var params = {
 	mount: [['/components', './node_modules']], // Mount a directory to a route.
 	logLevel: 2, // 0 = errors only, 1 = some, 2 = lots
 	middleware: [function(req, res, next) { next(); }], // Takes an array of Connect-compatible middleware that are injected into the server middleware stack
-	mimetypes: { 'application/wasm': ['.wasm'] } // Set extended MIME types
+	mimetypes: { 'application/wasm': ['.wasm'] } // Set extended MIME types,
+	index: 'index.html,index.js' // By default send supports "index.html" files, to disable this set false or to supply a new index pass a string or an array in preferred order 
 };
 liveServer.start(params);
 ```
@@ -153,6 +155,10 @@ We welcome contributions! See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for det
 Version history
 ---------------
 
+* v1.2.5
+  - support for extra mimetypes (@Yayure)
+  - support for custom default index other than index.html
+* 
 * v1.2.2
 	- Fix dependency problem
 * v1.2.1

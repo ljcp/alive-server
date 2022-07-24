@@ -11,6 +11,7 @@ var opts = {
 	mount: [],
 	proxy: [],
 	middleware: [],
+	index: 'index.html',
 	logLevel: 2,
 };
 
@@ -151,6 +152,10 @@ for (var i = process.argv.length - 1; i >= 2; --i) {
 		var mimetypesString = arg.substring(12).replace(/'/g, '"');
 		var mimetypes = typeof opts.mimetypes === "object" && !(opts.mimetypes instanceof Array) ? opts.mimetypes : {};
 		opts.mimetypes = assign(mimetypes, JSON.parse(mimetypesString));
+		process.argv.splice(i, 1);
+	}
+	else if (arg.indexOf("--index=") > -1) {
+		opts.index = arg.substring(8);
 		process.argv.splice(i, 1);
 	}
 	else if (arg === "--help" || arg === "-h") {

@@ -19,7 +19,8 @@ var INJECTED_CODE = fs.readFileSync(path.join(__dirname, "injected.html"), "utf8
 var LiveServer = {
 	server: null,
 	watcher: null,
-	logLevel: 2
+	logLevel: 2,
+	index: 'index.html'
 };
 
 function escape(html){
@@ -89,7 +90,7 @@ function staticServer(root) {
 			}
 		}
 
-		send(req, reqpath, { root: root })
+		send(req, reqpath, { root: root, index: LiveServer.index })
 			.on('error', error)
 			.on('directory', directory)
 			.on('file', file)
@@ -129,6 +130,7 @@ function entryPoint(staticHandler, file) {
  * @param htpasswd {string} Path to htpasswd file to enable HTTP Basic authentication
  * @param middleware {array} Append middleware to stack, e.g. [function(req, res, next) { next(); }].
  * @param mimetypes {object} MIME Types of extended files.
+ * @param index {string,string} By default send supports "index.html" files, to disable this set false or to supply a new index pass a string or an array in preferred order
  */
 LiveServer.start = function(options) {
 	options = options || {};
@@ -153,6 +155,7 @@ LiveServer.start = function(options) {
 	var noCssInject = options.noCssInject;
 	var httpsModule = options.httpsModule;
 	var mimetypes = options.mimetypes || {};
+	LiveServer.index = options.index === undefined ? 'index.html' : options.index.split(',');
 
 	if (httpsModule) {
 		try {

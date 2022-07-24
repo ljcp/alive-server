@@ -1,6 +1,6 @@
 {
   "name": "alive-server",
-  "version": "1.2.3",
+  "version": "1.2.6",
   "description": "Alive fork of live-server: simple development http server with live reload capability",
   "keywords": [
     "front-end",
