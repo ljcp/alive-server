@@ -155,7 +155,8 @@ We welcome contributions! See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for det
 
 Version history
 ---------------
-
+* v1.2.7
+  - update dependencies (@lil5)
 * v1.2.5
   - support for extra mimetypes (@Yayure)
   - support for custom default index other than index.html
