@@ -1,4 +1,4 @@
-[![NPM version](http://img.shields.io/npm/v/github-label.svg)](https://www.npmjs.org/package/github-label)
+[![NPM version](http://img.shields.io/npm/v/alive-server.svg)](https://www.npmjs.org/package/alive-server)
 A Live Server
 ===========
 
