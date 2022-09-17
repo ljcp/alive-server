@@ -206,7 +206,7 @@ LiveServer.start = function(options) {
 			realm: "Please authorize",
 			file: htpasswd
 		});
-		app.use(auth.connect(basic));
+		app.use((req, res, next) => basic.check(next)(req, res));
 	}
 	if (cors) {
 		app.use(require("cors")({
