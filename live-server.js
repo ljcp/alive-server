@@ -15,12 +15,24 @@ var opts = {
 	logLevel: 2,
 };
 
+
 var homeDir = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'];
 var configPath = path.join(homeDir, '.alive-server.json');
 if (fs.existsSync(configPath)) {
 	var userConfig = fs.readFileSync(configPath, 'utf8');
 	assign(opts, JSON.parse(userConfig));
-	if (opts.ignorePattern) opts.ignorePattern = new RegExp(opts.ignorePattern);
+}
+var projConfigPath = path.join(process.cwd(), '.alive-server.json');
+if (fs.existsSync(projConfigPath)) {
+	var projConfig = fs.readFileSync(projConfigPath, 'utf8');
+	assign(opts, JSON.parse(projConfig));
+}
+if (opts.ignorePattern) opts.ignorePattern = new RegExp(opts.ignorePattern);
+if (opts.ignore && typeof (opts.ignore) === 'string') {
+	opts.ignore = opts.ignore.split(',');
+}
+if (opts.watch && typeof (opts.watch) === 'string') {
+	opts.watch = opts.watch.split(',');
 }
 
 for (var i = process.argv.length - 1; i >= 2; --i) {

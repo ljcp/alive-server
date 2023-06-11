@@ -188,10 +188,15 @@ LiveServer.start = function(options) {
 	middleware.map(function(mw) {
 		if (typeof mw === "string") {
 			var ext = path.extname(mw).toLocaleLowerCase();
-			if (ext !== ".js") {
-				mw = require(path.join(__dirname, "middleware", mw + ".js"));
+			if (mw.startsWith("./")) {
+				if (ext !== ".js") mw += ".js";
+				mw = require(path.join(process.cwd(), mw));
 			} else {
-				mw = require(mw);
+				if (ext !== ".js") {
+					mw = require(path.join(__dirname, "middleware", mw));
+				} else {
+					mw = require(mw);
+				}
 			}
 		}
 		app.use(mw);
