@@ -72,7 +72,7 @@ Command line parameters:
 
 Default options:
 
-If a file `~/.live-server.json` exists it will be loaded and used as default options for live-server on the command line. See "Usage from node" for option names.
+If a file `~/.alive-server.json` exists it will be loaded and used as default options for live-server on the command line. See "Usage from node" for option names.
 
 
 Usage from node
@@ -92,7 +92,7 @@ var params = {
 	mount: [['/components', './node_modules']], // Mount a directory to a route.
 	logLevel: 2, // 0 = errors only, 1 = some, 2 = lots
 	middleware: [function(req, res, next) { next(); }], // Takes an array of Connect-compatible middleware that are injected into the server middleware stack
-	mimetypes: { 'application/wasm': ['.wasm'] } // Set extended MIME types,
+	mimetypes: { 'application/wasm': ['.wasm'] }, // Set extended MIME types,
 	index: 'index.html,index.js' // By default send supports "index.html" files, to disable this set false or to supply a new index pass a string or an array in preferred order 
 };
 liveServer.start(params);
