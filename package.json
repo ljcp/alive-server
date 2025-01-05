@@ -34,12 +34,12 @@
     "supertest": "^6.3.3"
   },
   "scripts": {
-    "lint": "eslint live-server.js index.js",
-    "hint": "jshint live-server.js index.js",
+    "lint": "eslint alive-server.js index.js",
+    "hint": "jshint alive-server.js index.js",
     "test": "mocha test --exit && npm run lint"
   },
   "bin": {
-    "alive-server": "./live-server.js"
+    "alive-server": "./alive-server.js"
   },
   "repository": {
     "type": "git",
