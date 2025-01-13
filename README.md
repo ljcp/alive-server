@@ -2,7 +2,7 @@
 A Live Server
 ===========
 
-A fork of tapio/live-server but Alive , PR's are welcome and reviewed within a week
+A fork of [tapio/live-server](https://github.com/tapio/live-server) but Alive, PR's are welcome and reviewed within a week
 
 ----------
 
@@ -72,14 +72,14 @@ Command line parameters:
 
 Default options:
 
-If a file `~/.alive-server.json` exists it will be loaded and used as default options for live-server on the command line. See "Usage from node" for option names.
+If a file `~/.alive-server.json` exists it will be loaded and used as default options for alive-server on the command line. See "Usage from node" for option names.
 
 
 Usage from node
 ---------------
 
 ```javascript
-var liveServer = require("alive-server");
+var aliveServer = require("alive-server");
 
 var params = {
 	port: 8181, // Set the server port. Defaults to 8080.
@@ -95,7 +95,7 @@ var params = {
 	mimetypes: { 'application/wasm': ['.wasm'] }, // Set extended MIME types,
 	index: 'index.html,index.js' // By default send supports "index.html" files, to disable this set false or to supply a new index pass a string or an array in preferred order 
 };
-liveServer.start(params);
+aliveServer.start(params);
 ```
 
 HTTPS
