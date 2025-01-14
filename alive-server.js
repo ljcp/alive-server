@@ -51,9 +51,6 @@ for (var i = process.argv.length - 1; i >= 2; --i) {
 	}
 	else if (arg.indexOf("--open=") > -1) {
 		var open = arg.substring(7);
-		if (open.indexOf('/') !== 0) {
-			open = '/' + open;
-		}
 		switch (typeof opts.open) {
 			case "boolean":
 				opts.open = open;
