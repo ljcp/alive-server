@@ -67,7 +67,8 @@ function staticServer(root) {
 					}
 				}
 				if (injectTag === null && LiveServer.logLevel >= 3) {
-					console.warn(`Failed to inject refresh script! Couldn't find any of the tags ${injectCandidates} from ${filepath}`.yellow);
+					console.warn("Failed to inject refresh script!".yellow,
+						"Couldn't find any of the tags ", injectCandidates, "from", filepath);
 				}
 			}
 		}
@@ -160,8 +161,8 @@ LiveServer.start = function(options) {
 		try {
 			require.resolve(httpsModule);
 		} catch (e) {
-			console.error(`HTTPS module "${httpsModule}" you've provided was not found`.red);
-			console.error(`Did you do "npm install ${httpsModule}"?`.red);
+			console.error(("HTTPS module \"%s\" you've provided was not found.").red, httpsModule);
+			console.error("Did you do \"npm install %s\"?", httpsModule);
 			return;
 		}
 	} else {
@@ -225,7 +226,7 @@ LiveServer.start = function(options) {
 			watchPaths.push(mountPath);
 		app.use(mountRule[0], staticServer(mountPath));
 		if (LiveServer.logLevel >= 1)
-			console.log(`Mapping ${mountRule[0]} to "${mountPath}"`);
+			console.log("Mapping %s to \"%s\"", mountRule[0], mountPath);
 	});
 	proxy.forEach(function(proxyRule) {
 		var proxyOpts = url.parse(proxyRule[1]);
@@ -233,7 +234,7 @@ LiveServer.start = function(options) {
 		proxyOpts.preserveHost = true;
 		app.use(proxyRule[0], require("proxy-middleware")(proxyOpts));
 		if (LiveServer.logLevel >= 1)
-			console.log(`Mapping ${proxyRule[0]} to \"${proxyRule[1]}\"`);
+			console.log('Mapping %s to "%s"', proxyRule[0], proxyRule[1]);
 	});
 	app.use(staticServerHandler) // Custom static server
 		.use(entryPoint(staticServerHandler, file))
@@ -253,10 +254,10 @@ LiveServer.start = function(options) {
 	}
 
 	// Handle server startup errors
-	server.addListener("error", function(e) {
-		if (e.code === "EADDRINUSE") {
-			var serveURL = protocol + "://" + host + ":" + port;
-			console.warn(`${serveURL} is already in use. Trying another port.`.yellow);
+	server.addListener('error', function(e) {
+		if (e.code === 'EADDRINUSE') {
+			var serveURL = protocol + '://' + host + ':' + port;
+			console.log("%s is already in use. Trying another port.".yellow, serveURL);
 			setTimeout(function() {
 				server.listen(0, host);
 			}, 1000);
@@ -302,12 +303,12 @@ LiveServer.start = function(options) {
 		if (LiveServer.logLevel >= 1) {
 			if (serveURL === openURL)
 				if (serveURLs.length === 1) {
-					console.log(`Serving "${root}" at ${serveURLs[0]}`.green);
+					console.log("Serving \"%s\" at %s".green, root, serveURLs[0]);
 				} else {
-					console.log(`Serving "${root}" at\n\t${serveURLs.join("\n\t")}`.green);
+					console.log("Serving \"%s\" at\n\t%s".green, root, serveURLs.join("\n\t"));
 				}
 			else
-				console.log(`Serving "${root}" at ${openURL} (${serveURL})`.green);
+				console.log("Serving \"%s\" at %s (%s)".green, root, openURL, serveURL);
 		}
 
 		// Launch browser
@@ -320,7 +321,7 @@ LiveServer.start = function(options) {
 				else if (p[0] !== "/")
 					p = "/" + p;
 				if (p.startsWith("/../")) {
-					console.warn(`Open path cannot be in parent directories: ${p}`.yellow);
+					console.warn("Open path cannot be in parent directories: %s".yellow, p);
 					return;
 				}
 				open(openURL + p, { app: browser });
