@@ -141,7 +141,7 @@ LiveServer.start = function(options) {
 	var watchPaths = options.watch || [root];
 	LiveServer.logLevel = options.logLevel === undefined ? 2 : options.logLevel;
 	var openPath = (options.open === undefined || options.open === true) ?
-		"" : ((options.open === null || options.open === false) ? null : options.open);
+		"/" : ((options.open === null || options.open === false) ? null : options.open);
 	if (options.noBrowser) openPath = null; // Backwards compatibility with 0.7.0
 	var file = options.file;
 	var staticServerHandler = staticServer(root);
@@ -312,14 +312,21 @@ LiveServer.start = function(options) {
 		}
 
 		// Launch browser
-		if (openPath !== null)
-			if (typeof openPath === "object") {
-				openPath.forEach(function(p) {
-					open(openURL + p, {app: browser});
-				});
-			} else {
-				open(openURL + openPath, {app: browser});
-			}
+		if (openPath !== null) {
+			if (openPath.forEach === undefined)
+				openPath = [ openPath ];
+			openPath.forEach(function(p) {
+				if (p.startsWith("./"))
+					p = p.slice(1);
+				else if (p[0] !== "/")
+					p = "/" + p;
+				if (p.startsWith("/../")) {
+					console.warn(`Open path cannot be in parent directories: ${p}`.yellow);
+					return;
+				}
+				open(openURL + p, { app: browser });
+			});
+		}
 	});
 
 	// Setup server to listen at port
